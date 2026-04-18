@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="scenebuilde.Controller"
+            style="-fx-background-color:#f4f6f8;">
+
+    <!-- TITLE -->
+    <top>
+        <Label text="Job Application System"
+               style="-fx-font-size:20; -fx-padding:15;" />
+    </top>
+
+    <center>
+        <HBox spacing="30" alignment="CENTER" style="-fx-padding:20;">
+
+            <!-- LEFT BOX -->
+            <VBox spacing="15" style="-fx-background-color:white; -fx-padding:15; -fx-background-radius:10;">
+
+                <!-- FORM -->
+                <GridPane hgap="10" vgap="10">
+
+                    <Label text="Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                    <TextField fx:id="nameField" prefWidth="200"
+                               GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                    <Label text="Address:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                    <TextField fx:id="addressField" prefWidth="200"
+                               GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                    <Label text="Phone:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                    <TextField fx:id="phoneField" prefWidth="200"
+                               GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                </GridPane>
+
+                <!-- STATUS -->
+                <Label text="Marital Status"/>
+                <HBox spacing="10">
+                    <RadioButton text="Single" fx:id="singleRadio"/>
+                    <RadioButton text="Married" fx:id="marriedRadio"/>
+                    <RadioButton text="Divorced" fx:id="divorcedRadio"/>
+                </HBox>
+
+                <DatePicker fx:id="datePicker"/>
+
+                <!-- SKILLS -->
+                <Label text="Skills"/>
+
+                <HBox spacing="10">
+                    <ListView fx:id="availableList" prefWidth="120"/>
+                    <VBox spacing="5">
+                        <Button text="→" onAction="#moveRight"/>
+                        <Button text="←" onAction="#moveLeft"/>
+                    </VBox>
+                    <ListView fx:id="selectedList" prefWidth="120"/>
+                </HBox>
+
+            </VBox>
+
+            <!-- RIGHT BOX -->
+            <VBox spacing="10" style="-fx-background-color:white; -fx-padding:15; -fx-background-radius:10;">
+
+                <Button text="Upload Cover Letter" onAction="#handleCoverLetter"/>
+
+                <TextArea fx:id="textArea" prefHeight="150" promptText="Cover Letter"/>
+
+                <Slider fx:id="fontSlider" min="10" max="30"/>
+
+                <Button text="Upload Image" onAction="#handleImage"/>
+                <ImageView fx:id="imageView" fitWidth="120" fitHeight="120"/>
+
+            </VBox>
+
+        </HBox>
+    </center>
+
+    <!-- BOTTOM -->
+    <bottom>
+        <HBox spacing="10" alignment="CENTER" style="-fx-padding:15;">
+
+            <Button text="Save" onAction="#handleSave"/>
+            <ColorPicker fx:id="colorPicker"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>
